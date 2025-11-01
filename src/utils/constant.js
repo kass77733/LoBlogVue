@@ -10,7 +10,7 @@ export default {
   // webURL: location.protocol + "//" + location.hostname + (location.port ? ':' + location.port : ''),
   // baseURL: location.protocol + "//" + location.hostname + (location.port ? ':' + location.port : '') + "/api",
   // imBaseURL: location.protocol + "//" + location.hostname + (location.port ? ':' + location.port : '') + "/im",
-  baseURL: "https://lozone.site/api",
+  baseURL: "https://lozone.qzz.io/api",
 
 
 
