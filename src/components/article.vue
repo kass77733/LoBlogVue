@@ -371,7 +371,7 @@
                 type: 'success',
                 message: '删除成功!'
               });
-              this.getNews();
+              // this.getNews();
             })
             .catch((error) => {
               this.$message({
@@ -397,7 +397,7 @@
           .then((res) => {
             this.weiYanDialogVisible = false;
             this.newsTime = "";
-            this.getNews();
+            // this.getNews();
           })
           .catch((error) => {
             this.$message({
@@ -406,30 +406,30 @@
             });
           });
       },
-      getNews() {
-        this.$http.post(this.$constant.baseURL + "/weiYan/listNews", {
-          current: 1,
-          size: 9999,
-          source: this.article.id
-        })
-          .then((res) => {
-            if (!this.$common.isEmpty(res.data)) {
-              res.data.records.forEach(c => {
-                c.content = c.content.replace(/\n{2,}/g, '<div style="height: 12px"></div>');
-                c.content = c.content.replace(/\n/g, '<br/>');
-                c.content = this.$common.faceReg(c.content);
-                c.content = this.$common.pictureReg(c.content);
-              });
-              this.treeHoleList = res.data.records;
-            }
-          })
-          .catch((error) => {
-            this.$message({
-              message: error.message,
-              type: "error"
-            });
-          });
-      },
+      // getNews() {
+      //   this.$http.post(this.$constant.baseURL + "/weiYan/listNews", {
+      //     current: 1,
+      //     size: 9999,
+      //     source: this.article.id
+      //   })
+      //     .then((res) => {
+      //       if (!this.$common.isEmpty(res.data)) {
+      //         res.data.records.forEach(c => {
+      //           c.content = c.content.replace(/\n{2,}/g, '<div style="height: 12px"></div>');
+      //           c.content = c.content.replace(/\n/g, '<br/>');
+      //           c.content = this.$common.faceReg(c.content);
+      //           c.content = this.$common.pictureReg(c.content);
+      //         });
+      //         this.treeHoleList = res.data.records;
+      //       }
+      //     })
+      //     .catch((error) => {
+      //       this.$message({
+      //         message: error.message,
+      //         type: "error"
+      //       });
+      //     });
+      // },
       onScrollPage() {
         this.scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
         if (this.scrollTop < (window.innerHeight / 4)) {
@@ -481,7 +481,7 @@
           .then((res) => {
             if (!this.$common.isEmpty(res.data)) {
               this.article = res.data;
-              this.getNews();
+              // this.getNews();
               const md = new MarkdownIt({breaks: true,html: true}).use(require('markdown-it-multimd-table'));
               
               this.articleContentHtml = md.render(this.article.articleContent);

@@ -228,20 +228,20 @@
 
         this.showAdmireDialog = true;
       },
-      // getAdmire() {
-      //   this.$http.get(this.$constant.baseURL + "/webInfo/getAdmire")
-      //     .then((res) => {
-      //       if (!this.$common.isEmpty(res.data)) {
-      //         this.admires = res.data;
-      //       }
-      //     })
-      //     .catch((error) => {
-      //       this.$message({
-      //         message: error.message,
-      //         type: "error"
-      //       });
-      //     });
-      // },
+      getAdmire() {
+        this.$http.get(this.$constant.baseURL + "/webInfo/getAdmire")
+          .then((res) => {
+            if (!this.$common.isEmpty(res.data)) {
+              this.admires = res.data;
+            }
+          })
+          .catch((error) => {
+            this.$message({
+              message: error.message,
+              type: "error"
+            });
+          });
+      },
       getRecommendArticles() {
         this.$http.post(this.$constant.baseURL + "/article/listArticle", this.pagination)
           .then((res) => {
