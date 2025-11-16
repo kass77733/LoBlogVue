@@ -1,4 +1,8 @@
 /* 通用css */
+:root {
+    --my-global-font-src: url(../fonts/LXGWWenKaiGBLite.woff2);
+}
+
 * {
     box-sizing: border-box;
 }
