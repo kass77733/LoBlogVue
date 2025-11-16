@@ -31,12 +31,30 @@ Vue.prototype.$constant = constant
 
 Vue.config.productionTip = false
 
+// 设置自定义字体
 const fontFile = process.env.VUE_APP_FONT_FILE || 'LXGWWenKaiGBLite.woff2'
+console.log('Font file from env:', process.env.VUE_APP_FONT_FILE)
+console.log('Using font file:', fontFile)
+
 let fontUrl = ''
 try {
+  // 尝试导入指定的字体文件
   fontUrl = require(`@/assets/fonts/${fontFile}`)
-} catch (e) {}
+  console.log('Successfully loaded font:', fontFile)
+} catch (e) {
+  // 如果指定的字体文件不存在，回退到默认字体
+  console.warn('Failed to load custom font:', fontFile, ', fallback to default')
+  try {
+    fontUrl = require('@/assets/fonts/LXGWWenKaiGBLite.woff2')
+    console.log('Using default font')
+  } catch (fallbackError) {
+    console.error('Error loading default font:', fallbackError)
+  }
+}
+
 if (fontUrl) {
+  console.log('Setting CSS variable for font:', fontUrl)
+  // 设置 CSS 变量
   document.documentElement.style.setProperty('--my-global-font-src', `url(${fontUrl})`)
 }
 
