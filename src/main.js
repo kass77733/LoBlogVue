@@ -12,25 +12,6 @@ import mavonEditor from 'mavon-editor'
 // import './utils/live2d'
 import './utils/title'
 //引入css
-import './assets/css/animation.css'
-import './assets/css/tocbot.css'
-import './assets/css/color.css'
-import './assets/css/markdown-highlight.css'
-import './assets/css/font-awesome.min.css'
-import 'mavon-editor/dist/css/index.css'
-
-import {vueBaberrage} from 'vue-baberrage'
-
-Vue.use(ElementUI)
-Vue.use(vueBaberrage)
-Vue.use(mavonEditor)
-
-Vue.prototype.$http = http
-Vue.prototype.$common = common
-Vue.prototype.$constant = constant
-
-Vue.config.productionTip = false
-
 // 设置自定义字体
 const fontFile = process.env.VUE_APP_FONT_FILE || 'LXGWWenKaiGBLite.woff2'
 console.log('Font file from env:', process.env.VUE_APP_FONT_FILE)
@@ -58,7 +39,25 @@ if (fontUrl) {
   document.documentElement.style.setProperty('--my-global-font-src', `url(${fontUrl})`)
 }
 
+import './assets/css/animation.css'
+import './assets/css/tocbot.css'
+import './assets/css/color.css'
+import './assets/css/markdown-highlight.css'
+import './assets/css/font-awesome.min.css'
+import 'mavon-editor/dist/css/index.css'
 import './assets/css/index.css'
+
+import {vueBaberrage} from 'vue-baberrage'
+
+Vue.use(ElementUI)
+Vue.use(vueBaberrage)
+Vue.use(mavonEditor)
+
+Vue.prototype.$http = http
+Vue.prototype.$common = common
+Vue.prototype.$constant = constant
+
+Vue.config.productionTip = false
 
 new Vue({
   router,
